@@ -33,7 +33,7 @@
 
 ;; A very simple generic project defenition to work with git projects:
 
-;; (simp-project-defind
+;; (simp-project-define
 ;;  '(:has (.git)
 ;;    :ignore (.git)))
 
@@ -44,7 +44,7 @@
 
 ;; You could likewise work with generic mercurial project like:
 
-;; (simp-project-defind
+;; (simp-project-define
 ;;  '(:has (.hg)
 ;;    :ignore (.hg)))
 

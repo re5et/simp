@@ -15,7 +15,7 @@ then somewhere in your init
 # defining a project
 A very simple generic project defenition to work with git projects:
 
-    (simp-project-defind
+    (simp-project-define
      '(:has (.git)
        :ignore (.git)))
 
@@ -26,7 +26,7 @@ excluded because you don't care about it.
 
 You could likewise work with generic mercurial project like:
 
-    (simp-project-defind
+    (simp-project-define
      '(:has (.hg)
        :ignore (.hg)))
 
