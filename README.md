@@ -4,7 +4,7 @@ simp is a dead simple project defenition system that allows you to specify proje
 
 # installing it
 
-- first
+- first, install from [Marmalade](http://marmalade-repo.org/)
 
     M-x package-install simp
 
