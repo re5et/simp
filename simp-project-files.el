@@ -3,7 +3,7 @@
 ;; Copyright (C) 2011 @re5et
 
 ;; Author: atom smith
-;; URL: http://trickeries.com
+;; URL: https://github.com/re5et/simp
 ;; Created: 22 Dec 2011
 ;; Version: 0.1.1
 ;; Keywords: project grep find
