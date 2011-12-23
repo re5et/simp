@@ -8,7 +8,7 @@ simp is a dead simple project defenition system that allows you to specify proje
 
     M-x package-install simp
 
-then somewhere in your init
+- then, somewhere in your init
 
     (require 'simp)
 
