@@ -31,7 +31,7 @@
 
 ;;; Commentary:
 
-;; A very simple generic project defenition to work with git projects:
+;; A very simple generic project definition to work with git projects:
 
 ;; (simp-project-define
 ;;  '(:has (.git)
@@ -48,7 +48,7 @@
 ;;  '(:has (.hg)
 ;;    :ignore (.hg)))
 
-;; A more complex project defenition might look like this:
+;; A more complex project definition might look like this:
 
 ;; (simp-project-define
 ;;  '(:type rails

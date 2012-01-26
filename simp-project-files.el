@@ -32,7 +32,7 @@
 ;;; Commentary
 
 ;; Bind simp-project-find-file to something so you can quickly narrow down
-;; files in a project without haveing to travese directories. I use:
+;; files in a project without having to traverse directories. I use:
 
 ;; (global-set-key (kbd "C-x M-f") 'simp-project-find-file)
 
