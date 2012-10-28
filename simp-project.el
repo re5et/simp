@@ -72,6 +72,9 @@
 ;;  '(:type emacs
 ;;    :has (init.el)))
 
+;; Needed for 'return' used in simp-project-for-current-buffer
+(require 'cl)
+
 (defvar simp-projects ())
 (defvar simp-buffer-project nil)
 (make-variable-buffer-local 'simp-buffer-project)
@@ -100,16 +103,17 @@ correct project and set it"
                 (plist-put project :root (directory-file-name found-project))
                 (return (setq simp-buffer-project project))))))))
 
+(defun simp-glob-in-dir (glob dir)
+  "Returns a list of any files matching the given GLOB are in DIR"
+  (file-expand-wildcards (expand-file-name (symbol-name glob) dir)))
+
 (defun simp-project-has-paths (paths &optional dir)
   "Used to match a path to a project.  PATHS are tested
 to see if they exist in DIR"
   (let ((dir (or dir default-directory)))
     (if (member
          nil
-         (mapcar
-          (lambda (path)
-            (file-exists-p (expand-file-name (symbol-name path) dir)))
-          paths))
+         (mapcar (lambda (path) (simp-glob-in-dir path dir)) paths))
         (unless (string= dir "/")
           (simp-project-has-paths paths (expand-file-name ".." dir)))
       dir)))
