@@ -69,12 +69,12 @@ following:
 
     (simp-project-define
       '(:has (.git)
-      :ignore (.git)))
+        :ignore (.git)))
 
     (simp-project-define
       '(:type ruby-gem
-      :has (*.gemspec)
-      :ignore (.git)))
+        :has (*.gemspec)
+        :ignore (.git)))
 
 If the project has both a `whatever.gemspec` file and a `.git` directory, the
 `ruby-gem` entry will match first.
