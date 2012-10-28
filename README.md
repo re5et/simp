@@ -37,8 +37,8 @@ look like this:
 
     (simp-project-define
       '(:type ruby-gem
-      :has (*.gemspec)
-      :ignore (.git)))
+        :has (*.gemspec)
+        :ignore (.git)))
 
 A more complex project definition might look like this:
 
