@@ -1,6 +1,8 @@
 # what it is
 
-simp is a dead simple project defenition system that allows you to specify project properties and use them to do things like quick finding and grepping of project files.
+simp is a dead simple project definition system that allows you to specify
+project properties and use them to do things like quick finding and grepping of
+project files.
 
 # installing it
 
@@ -30,7 +32,15 @@ You could likewise work with generic mercurial project like:
      '(:has (.hg)
        :ignore (.hg)))
 
-A more complex project defenition might look like this:
+Globs can also be used in project definitions. A definition for a Rubygem might
+look like this:
+
+    (simp-project-define
+      '(:type ruby-gem
+        :has (*.gemspec)
+        :ignore (.git)))
+
+A more complex project definition might look like this:
 
     (simp-project-define
      '(:type rails
@@ -54,12 +64,27 @@ I use the following to work in my .emacs.d directory:
      '(:type emacs
        :has (init.el)))
 
+Project definitions are checked in last-in-first-out order. That is, given the
+following:
+
+    (simp-project-define
+      '(:has (.git)
+        :ignore (.git)))
+
+    (simp-project-define
+      '(:type ruby-gem
+        :has (*.gemspec)
+        :ignore (.git)))
+
+If the project has both a `whatever.gemspec` file and a `.git` directory, the
+`ruby-gem` entry will match first.
+
 # how it works
 
 When you attempt to take a project action in a buffer, simp looks at
 the ancestor directories of the file associated with the buffer to
 determine which project to use.  simp makes this determination by
 verifying that some ancestor directory of the buffer's associated file
-has all of the paths specified in a project defenitions ':has'
+has all of the paths specified in a project definitions ':has'
 property.  Once it knows which project we are talking working with, it
 is easy to scope actions to the project directory.
