@@ -114,15 +114,15 @@ to see if they exist in DIR"
     (if (member
          nil
          (mapcar (lambda (path) (simp-glob-in-dir path dir)) paths))
-        (unless (string= dir "/")
-          (simp-project-has-paths paths (expand-file-name ".." dir)))
-      dir)))
+        (if (string= dir "/") nil dir))))
 
 (defun simp-project-get (member)
   "get MEMBER property from the current project"
-  (plist-get
-   (simp-project-for-current-buffer)
-   member))
+  (if (simp-project-for-current-buffer)
+      (plist-get
+       (simp-project-for-current-buffer)
+       member)
+    (error "did not find a project to work with :(")))
 
 (defun simp-project-root ()
   "get the current buffers project root"
