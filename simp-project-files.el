@@ -41,6 +41,8 @@
 
 (require 'simp-project)
 
+(defcustom simp-project-find-file-sort-command 'simp-project-find-file-sort-short-filename "The command to sort the found files returned by simp-project-find-file")
+
 (defun simp-project-find-file ()
   "find file in project, excluding project's ignored paths,
 using the unix find command for speedy results"
@@ -53,8 +55,14 @@ using the unix find command for speedy results"
             (simp-project-files)))))
 
 (defun simp-project-files ()
-  "returns a list of files in a project, excluding project's
-ignored paths, using the unix find command for speedy results"
+  "Returns a sorted list of files in a project, excluding project's
+ignored paths, using the unix find command for speedy results.
+Set simp-project-find-file-sort-command to the command you want to sort with"
+  (sort (simp-get-project-files) simp-project-find-file-sort-command))
+
+(defun simp-get-project-files ()
+  "Returns a list of files in a project, excluding project's
+ignored paths, using the unix find command for speedy results."
   (split-string
    (shell-command-to-string
     (mapconcat
@@ -70,5 +78,19 @@ ignored paths, using the unix find command for speedy results"
        "-prune -o -type f"
        ,(format "| sed -E s:'%s/'::" (simp-project-root))
        ) " "))))
+
+(defun simp-project-find-file-sort-short-filename (a b)
+  "Sort files by filename, shortest to longest.  This is currently
+the default. To use, set simp-project-find-file-sort-command to
+simp-project-find-file-sort-short-filename."
+  (< (length a) (length b)))
+
+(defun simp-project-find-file-sort-modified-time (a b)
+  "Sort files by file modified time, most recent to longest ago.
+ To use, set simp-project-find-file-sort-command to
+simp-project-find-file-sort-modified-time."
+  (time-less-p
+   (sixth (file-attributes b))
+   (sixth (file-attributes a))))
 
 (provide 'simp-project-files)
