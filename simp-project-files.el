@@ -66,25 +66,27 @@ Set simp-project-find-file-sort-command to the command you want to sort with"
 (defun simp-project-get-files ()
   "Returns a list of files in a project, excluding project's
 ignored paths, using the unix find command for speedy results."
-  (split-string
-   (shell-command-to-string
-    (simp-project-find-files-generate-find-command))
-   "\n" t))
+  (let ((find-command (simp-project-find-files-generate-find-command)))
+    (message find-command)
+    (split-string
+     (shell-command-to-string find-command)
+     "\n" t)))
 
 (defun simp-project-find-files-generate-find-command ()
-  (mapconcat
-   'identity
-   `("find"
-     ,(simp-project-root)
-     "\\("
-     ,(format "-path \\*/%s" (car (simp-project-ignored)))
-     ,(mapconcat (lambda (dir)
-                   (format "-o -path \\*/%s" (symbol-name dir)))
-                 (cdr (simp-project-ignored)) " ")
-     "\\)"
-     "-prune -o -type f"
-     ,(format "| sed -E s:'%s/'::" (simp-project-root))
-     ) " "))
+  (let ((project-root (expand-file-name (simp-project-root))))
+    (mapconcat
+     'identity
+     `("find"
+       ,project-root
+       "\\("
+       ,(format "-path \\*/%s" (car (simp-project-ignored)))
+       ,(mapconcat (lambda (dir)
+                     (format "-o -path \\*/%s" (symbol-name dir)))
+                   (cdr (simp-project-ignored)) " ")
+       "\\)"
+       "-prune -o -type f"
+       ,(format "| sed -E s:'%s/'::" project-root)
+       ) " ")))
 
 (defun simp-project-find-file-sort-short-filename (a b)
   "Sort files by filename, shortest to longest.  This is currently
