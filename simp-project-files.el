@@ -41,7 +41,10 @@
 
 (require 'simp-project)
 
-(defcustom simp-project-find-file-sort-command 'simp-project-find-file-sort-short-filename "The command to sort the found files returned by simp-project-find-file")
+(defcustom simp-project-find-file-sort-command
+  'simp-project-find-file-sort-short-filename
+  "The command to sort the found files returned by simp-project-find-file"
+  :group 'simp)
 
 (defun simp-project-find-file ()
   "find file in project, excluding project's ignored paths,

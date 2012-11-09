@@ -79,8 +79,10 @@
 (defvar simp-buffer-project nil)
 (make-variable-buffer-local 'simp-buffer-project)
 
-(defcustom simp-completing-read-command 'completing-read
-  "The completing read command simp-completing-read will use.")
+(defcustom simp-completing-read-command
+  'completing-read
+  "The completing read command simp-completing-read will use."
+  :group 'simp)
 
 (defun simp-completing-read (prompt collection)
   "Internal simp use, completing read used by simp.
@@ -122,7 +124,7 @@ to see if they exist in DIR"
       (plist-get
        (simp-project-for-current-buffer)
        member)
-    (error "did not find a project to work with :(")))
+    (error "simp did not find a project to work with :(")))
 
 (defun simp-project-root ()
   "get the current buffers project root"
