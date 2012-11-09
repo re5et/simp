@@ -48,7 +48,7 @@ using the unix find command for speedy results"
   (find-file
    (format "%s/%s"
            (simp-project-root)
-           (ido-completing-read
+           (simp-completing-read
             "file: "
             (simp-project-files)))))
 
