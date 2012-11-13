@@ -1,11 +1,11 @@
 ;;; simp-project-rgrep.el --- simp project enhanced rgrepping
 
-;; Copyright (C) 2011 @re5et
+;; Copyright (C) 2011-2012 @re5et
 
 ;; Author: atom smith
 ;; URL: https://github.com/re5et/simp
 ;; Created: 22 Dec 2011
-;; Version: 0.1.1
+;; Version: 0.2.0
 ;; Keywords: project grep find
 
 ;; This file is NOT part of GNU Emacs.
