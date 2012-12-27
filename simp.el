@@ -38,7 +38,6 @@
   "Simp project helper."
   :group 'convenience)
 
-(require 'simp-project)
 (require 'simp-project-files)
 (require 'simp-project-rgrep)
 
