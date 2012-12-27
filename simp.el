@@ -43,3 +43,4 @@
 (require 'simp-project-rgrep)
 
 (provide 'simp)
+;;; simp.el ends here
