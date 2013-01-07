@@ -106,7 +106,7 @@ Files are presented in shorted path to longest for selection.
 - Bind this to something handy.  I find that I use it very often.  I
   bind like:
 
-  : (global-set-key (kbd "C-x M-f") 'simp-project-find-file)
+  : (global-set-key (kbd "C-c f") 'simp-project-find-file)
 ** rgrep Enhancements
 *** simp-project-rgrep
 
@@ -144,7 +144,7 @@ rgrep or simp-project-rgrep.
 Feel free to fork it and send pull requests.  Also, if you have a good
 idea but don't know how to implement it, I will likely be more than
 happy to write it, so let me know.
-* Basic Overview off How it Works
+* Overview of How it Works
 
 When you attempt to take a project action in a buffer, simp looks for
 a simp-buffer-project variable, and if it doesn't find one it will set
@@ -152,6 +152,6 @@ one by looking at the ancestor directories of the file associated with
 the buffer to determine which project to use.  simp makes this
 determination by verifying that some ancestor directory of the
 buffer's associated file has all of the paths specified in a project
-definitions ':has' property.  Once it knows which project we are
-talking working with, it is easy to scope actions to the project
-directory.
+definitions ':has' property.  Once we know which project we are
+working with, it is easy to scope actions to the project directory and
+files.
