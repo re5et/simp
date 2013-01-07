@@ -1,6 +1,6 @@
 ;;; simp-project-rgrep.el --- simp project enhanced rgrepping
 
-;; Copyright (C) 2011-2012 @re5et
+;; Copyright (C) 2011-2013 @re5et
 
 ;; Author: atom smith
 ;; URL: https://github.com/re5et/simp
@@ -71,3 +71,5 @@ current region, or the thing at point"
        (rgrep search-for "*" (simp-project-root))))))
 
 (provide 'simp-project-rgrep)
+
+;;; simp-project-rgrep.el ends here

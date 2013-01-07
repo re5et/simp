@@ -1,6 +1,6 @@
 ;;; simp-project.el --- Simple project defenition, chiefly for file finding, and grepping
 
-;; Copyright (C) 2011-2012 @re5et
+;; Copyright (C) 2011-2013 @re5et
 
 ;; Author: atom smith
 ;; URL: https://github.com/re5et/simp
@@ -151,3 +151,7 @@ number of key value pairs that you wish to reference using simp-project-get."
   (push project simp-projects))
 
 (provide 'simp-project)
+
+;;; simp-project.el ends here
+
+(package-buffer-info)

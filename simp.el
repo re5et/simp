@@ -1,6 +1,6 @@
 ;;; simp.el --- Simple project defenition, chiefly for file finding, and grepping
 
-;; Copyright (C) 2011-2012 @re5et
+;; Copyright (C) 2011-2013 @re5et
 
 ;; Author: atom smith
 ;; URL: https://github.com/re5et/simp
@@ -39,4 +39,5 @@
 (require 'simp-project-with-bookmarks)
 
 (provide 'simp)
+
 ;;; simp.el ends here

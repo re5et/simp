@@ -1,6 +1,6 @@
 ;;; simp-project-files.el --- Find files in a simp project
 
-;; Copyright (C) 2011-2012 @re5et
+;; Copyright (C) 2011-2013 @re5et
 
 ;; Author: atom smith
 ;; URL: https://github.com/re5et/simp
@@ -102,3 +102,5 @@ simp-project-find-file-sort-modified-time."
    (sixth (file-attributes a))))
 
 (provide 'simp-project-files)
+
+;;; simp-project-files.el ends here

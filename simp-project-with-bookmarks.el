@@ -1,6 +1,6 @@
 ;;; simp-project-with-bookmark.el --- Utilize Emacs bookmarks with simp
 
-;; Copyright (C) 2011-2012 @re5et
+;; Copyright (C) 2011-2013 @re5et
 
 ;; Author: atom smith
 ;; URL: https://github.com/re5et/simp
@@ -62,3 +62,5 @@ bookmark system to set the project context to use"
        (simp-project-rgrep))))
 
 (provide 'simp-project-with-bookmarks)
+
+;;; simp-project-with-bookmark.el ends here
