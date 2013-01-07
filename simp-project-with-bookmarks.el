@@ -31,7 +31,11 @@
 
 ;;; Commentary
 
-;;
+;; Use your bookmarks to jump into a simp action without
+;; having to go there first.  You can wrap any call in
+;; simp-project-with-bookmark, and it will allow you to
+;; select a bookmark to determine which project you are
+;; working with.
 
 (require 'simp-project)
 (require 'bookmark)
