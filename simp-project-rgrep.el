@@ -68,7 +68,9 @@ current region, or the (symbol) thing at point"
      (let ((search-for (if (region-active-p)
                            (buffer-substring (region-beginning) (region-end))
                          (thing-at-point 'symbol))))
-       (rgrep search-for "*" (simp-project-root))))))
+       (if search-for
+           (rgrep search-for "*" (simp-project-root))
+         (message "Failed to rgrep. No active region, and point not near a symbol"))))))
 
 (defalias 'simp-project-rgrep-thing-at-point 'simp-project-rgrep-dwim)
 
