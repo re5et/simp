@@ -5,14 +5,13 @@ project properties and use them to do things like quick finding and grepping of
 project files.
 
 * installing it
+** first, install from [Marmalade](http://marmalade-repo.org/)
 
-- first, install from [Marmalade](http://marmalade-repo.org/)
+: M-x package-install simp
 
-  : M-x package-install simp
+** then, somewhere in your init
 
-- then, somewhere in your init
-
-  : (require 'simp)
+: (require 'simp)
 
 * defining a project
 A very simple generic project defenition to work with git projects:
@@ -70,7 +69,7 @@ following:
 : (simp-project-define
 :   '(:has (.git)
 :     :ignore (.git)))
-
+:
 : (simp-project-define
 :   '(:type ruby-gem
 :     :has (*.gemspec)
@@ -79,12 +78,77 @@ following:
 If the project has both a `whatever.gemspec` file and a `.git` directory, the
 `ruby-gem` entry will match first.
 
+* features
+** finding files
+*** simp-project-find-file
+
+Helps you find files in your project.  It uses your system find
+command to quickly identify which files you are interested in
+selecting from.
+
+It uses the :ignore property of simp-project-define
+to exclude directories from the search.
+
+Files are presented in shorted path to longest for selection.
+
+**** Recommendations
+
+- Customize the simp-completing-read-command variable. I use ido with
+  ido-enable-flex-matching.  This will allow you to do
+  find-as-you-type fuzzy file finding. It works out very nicely. If
+  you are encountering performance problems with this approach, please
+  refer to: https://github.com/re5et/simp/issues/4
+
+- Ignore directories you don't pick files from.  Lots of projects
+  create cache directories and other junk you don't care about.  The
+  more you ignore, the faster it goes.
+
+- Bind this to something handy.  I find that I use it very often.  I
+  bind like:
+
+  : (global-set-key (kbd "C-x M-f") 'simp-project-find-file)
+** rgrep enhancements
+*** simp-project-rgrep
+
+Helps you search your project quickly. The bulk of the work that this
+does is to customize the find command that rgrep already uses to
+exclude more things, specifically the things you specify with
+the :ignore property of simp-project-define
+
+**** Recommendations
+
+- Ignore stuff you don't want to text search.  For me this includes
+  log files, caches, directories that store binary files
+  (assets/images), revision control directories, etc.  I usually find
+  that if I ignore these types of things, my searches are about 10
+  times faster.
+
+- I also use this quite a bit, especially in an unfamiliar codebase.
+
+  : (global-set-key (kbd "C-c s") 'simp-project-rgrep)
+
+*** simp-project-rgrep-dwim (previously simp-project-rgrep-thing-at-point)
+
+A single command to immediately search your whole project, for any
+type of file (still taking the :ignore property of simp-project-define
+into consideration) for your active region, or for the symbol at
+point.  It takes care of the arguments you have to step through using
+rgrep or simp-project-rgrep.
+
+**** Recommendations
+
+- I might actually use this one even more than simp-project-rgrep, this is how I bind it:
+
+  : (global-set-key (kbd "C-c S") 'simp-project-rgrep-dwim)
+
 * how it works
 
-When you attempt to take a project action in a buffer, simp looks at
-the ancestor directories of the file associated with the buffer to
-determine which project to use.  simp makes this determination by
-verifying that some ancestor directory of the buffer's associated file
-has all of the paths specified in a project definitions ':has'
-property.  Once it knows which project we are talking working with, it
-is easy to scope actions to the project directory.
+When you attempt to take a project action in a buffer, simp looks for
+a simp-buffer-project variable, and if it doesn't find one it will set
+one by looking at the ancestor directories of the file associated with
+the buffer to determine which project to use.  simp makes this
+determination by verifying that some ancestor directory of the
+buffer's associated file has all of the paths specified in a project
+definitions ':has' property.  Once it knows which project we are
+talking working with, it is easy to scope actions to the project
+directory.
