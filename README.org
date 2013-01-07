@@ -4,6 +4,18 @@ simp is a dead simple project definition system that allows you to specify
 project properties and use them to do things like quick finding and grepping of
 project files.
 
+* Overview of How it Works
+
+When you attempt to take a simp project action in a buffer, simp looks for
+a simp-buffer-project variable, and if it doesn't find one it will set
+one by looking at the ancestor directories of the file or directory
+associated with the buffer to determine which project to use.  simp makes this
+determination by verifying that some ancestor directory of the
+buffer's associated file or directory has all of the paths specified in a project
+definitions ':has' property.  Once we know which project we are
+working with, it is easy to scope actions to the project directory and
+files.
+
 * Installing It
 ** First, install from [Marmalade](http://marmalade-repo.org/)
 
@@ -166,14 +178,3 @@ simp-project-rgrep scoped to bookmark selected
 Feel free to fork it and send pull requests.  Also, if you have a good
 idea but don't know how to implement it, I will likely be more than
 happy to write it, so let me know.
-* Overview of How it Works
-
-When you attempt to take a project action in a buffer, simp looks for
-a simp-buffer-project variable, and if it doesn't find one it will set
-one by looking at the ancestor directories of the file associated with
-the buffer to determine which project to use.  simp makes this
-determination by verifying that some ancestor directory of the
-buffer's associated file has all of the paths specified in a project
-definitions ':has' property.  Once we know which project we are
-working with, it is easy to scope actions to the project directory and
-files.
