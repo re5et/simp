@@ -75,7 +75,7 @@ ignored paths, using the unix find command for speedy results."
   (let ((project-root (expand-file-name (simp-project-root))))
     (mapconcat
      'identity
-     `("find"
+     `("find -L"
        ,project-root
        "\\("
        ,(format "-path \\*/%s" (car (simp-project-ignored)))
