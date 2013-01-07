@@ -1,11 +1,11 @@
-* what it is
+* What It Is
 
 simp is a dead simple project definition system that allows you to specify
 project properties and use them to do things like quick finding and grepping of
 project files.
 
-* installing it
-** first, install from [Marmalade](http://marmalade-repo.org/)
+* Installing It
+** First, install from [Marmalade](http://marmalade-repo.org/)
 
 : M-x package-install simp
 
@@ -13,7 +13,7 @@ project files.
 
 : (require 'simp)
 
-* defining a project
+* Defining A Project
 A very simple generic project defenition to work with git projects:
 
 : (simp-project-define
@@ -78,8 +78,8 @@ following:
 If the project has both a `whatever.gemspec` file and a `.git` directory, the
 `ruby-gem` entry will match first.
 
-* features
-** finding files
+* Features
+** Finding Files
 *** simp-project-find-file
 
 Helps you find files in your project.  It uses your system find
@@ -107,7 +107,7 @@ Files are presented in shorted path to longest for selection.
   bind like:
 
   : (global-set-key (kbd "C-x M-f") 'simp-project-find-file)
-** rgrep enhancements
+** rgrep Enhancements
 *** simp-project-rgrep
 
 Helps you search your project quickly. The bulk of the work that this
@@ -140,8 +140,11 @@ rgrep or simp-project-rgrep.
 - I might actually use this one even more than simp-project-rgrep, this is how I bind it:
 
   : (global-set-key (kbd "C-c S") 'simp-project-rgrep-dwim)
-
-* how it works
+* Have any good ideas?
+Feel free to fork it and send pull requests.  Also, if you have a good
+idea but don't know how to implement it, I will likely be more than
+happy to write it, so let me know.
+* Basic Overview off How it Works
 
 When you attempt to take a project action in a buffer, simp looks for
 a simp-buffer-project variable, and if it doesn't find one it will set
