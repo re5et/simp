@@ -34,12 +34,9 @@
 ;; If you want to use any or some of these without everything, require
 ;; just the things you want.
 
-(defgroup simp nil
-  "Simp project helper."
-  :group 'convenience)
-
 (require 'simp-project-files)
 (require 'simp-project-rgrep)
+(require 'simp-project-with-bookmarks)
 
 (provide 'simp)
 ;;; simp.el ends here

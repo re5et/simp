@@ -75,6 +75,10 @@
 ;; Needed for 'return' used in simp-project-for-current-buffer
 (require 'cl)
 
+(defgroup simp nil
+  "Simp project helper."
+  :group 'convenience)
+
 (defvar simp-projects ())
 (defvar simp-buffer-project nil)
 (make-variable-buffer-local 'simp-buffer-project)
