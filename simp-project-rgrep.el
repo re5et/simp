@@ -5,7 +5,7 @@
 ;; Author: atom smith
 ;; URL: https://github.com/re5et/simp
 ;; Created: 22 Dec 2011
-;; Version: 0.2.0
+;; Version: 0.3.0
 ;; Keywords: project grep find
 
 ;; This file is NOT part of GNU Emacs.
@@ -58,10 +58,10 @@ directories excluded"
    (lambda ()
      (call-interactively 'rgrep))))
 
-(defun simp-project-rgrep-thing-at-point ()
+(defun simp-project-rgrep-dwim ()
   "Interactively call rgrep with the project's ignored
 directories excluded, search all file types for the
-current region, or the thing at point"
+current region, or the (symbol) thing at point"
   (interactive)
   (simp-project-buffer-rgrep
    (lambda ()
@@ -69,6 +69,8 @@ current region, or the thing at point"
                            (buffer-substring (region-beginning) (region-end))
                          (thing-at-point 'symbol))))
        (rgrep search-for "*" (simp-project-root))))))
+
+(defalias 'simp-project-rgrep-thing-at-point 'simp-project-rgrep-dwim)
 
 (provide 'simp-project-rgrep)
 

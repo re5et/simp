@@ -5,7 +5,7 @@
 ;; Author: atom smith
 ;; URL: https://github.com/re5et/simp
 ;; Created: 22 Dec 2011
-;; Version: 0.2.0
+;; Version: 0.3.0
 ;; Keywords: project grep find
 
 ;; This file is NOT part of GNU Emacs.
@@ -154,4 +154,3 @@ number of key value pairs that you wish to reference using simp-project-get."
 
 ;;; simp-project.el ends here
 
-(package-buffer-info)
