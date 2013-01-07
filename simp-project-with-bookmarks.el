@@ -45,7 +45,7 @@
 bookmark system to set the project context to use"
   `(let ((bookmark (list
                     (bookmark-completing-read
-                     "Jump to bookmark"
+                     "bookmark for simp-project"
                      bookmark-current-bookmark))))
      (let ((simp-buffer-project nil)
            (default-directory (bookmark-location (car bookmark))))
