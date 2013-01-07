@@ -140,6 +140,28 @@ rgrep or simp-project-rgrep.
 - I might actually use this one even more than simp-project-rgrep, this is how I bind it:
 
   : (global-set-key (kbd "C-c S") 'simp-project-rgrep-dwim)
+** with bookmarks
+
+You can use with bookmark simp commands to take a project action like
+rgrepping or finding a file when you are not in a buffer that is not
+associated with the project you want to work with.
+
+When you run one of the following it will first prompt you to select a
+bookmark and then scope the simp command to the location of the
+bookmark.
+
+I would recommend that you bookmark each project you define so you can
+take advantage of this.  For information on working with Emacs' bookmarks,
+see http://emacswiki.org/emacs/BookMarks
+
+*** simp-project-with-bookmark-find-file
+
+simp-project-find-file scoped to bookmark selected
+
+*** simp-project-with-bookmark-rgrep
+
+simp-project-rgrep scoped to bookmark selected
+
 * Have any good ideas?
 Feel free to fork it and send pull requests.  Also, if you have a good
 idea but don't know how to implement it, I will likely be more than
