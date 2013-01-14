@@ -43,11 +43,13 @@
   "add project's ignored paths to the rgrep's ignored"
   (let* ((original-ignored grep-find-ignored-directories)
          (grep-find-ignored-directories
-          (append original-ignored
-                  (mapcar
-                   (lambda (dir)
-                     (symbol-name dir))
-                   (simp-project-ignored)))))
+          (condition-case nil
+              (append original-ignored
+                      (mapcar
+                       (lambda (dir)
+                         (symbol-name dir))
+                       (simp-project-ignored)))
+            (error original-ignored))))
     (funcall fn)))
 
 (defun simp-project-rgrep ()

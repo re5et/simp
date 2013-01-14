@@ -108,7 +108,9 @@ correct project and set it"
               (progn
                 (plist-put project :root (directory-file-name found-project))
                 (return (setq simp-buffer-project project)))))))
-  simp-buffer-project)
+  (if simp-buffer-project
+      simp-buffer-project
+    (error "simp did not find a project to work with :(")))
 
 (defun simp-glob-in-dir (glob dir)
   "Returns a list of any files matching the given GLOB are in DIR"
@@ -128,13 +130,10 @@ to see if they exist in DIR"
           (simp-project-has-paths paths (expand-file-name ".." dir)))
       dir)))
 
-(defun simp-project-get (member &optional halt)
-  "get MEMBER property from the current project
-if HALT is non-nil throw an error"
+(defun simp-project-get (member)
+  "get MEMBER property from the current project"
   (if (simp-project-for-current-buffer)
-      (plist-get (simp-project-for-current-buffer) member)
-    (if halt
-        (error "simp did not find a project to work with :("))))
+      (plist-get (simp-project-for-current-buffer) member)))
 
 (defun simp-project-root ()
   "get the current buffers project root"

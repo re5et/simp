@@ -72,7 +72,7 @@ ignored paths, using the unix find command for speedy results."
      "\n" t)))
 
 (defun simp-project-find-files-generate-find-command ()
-  (let ((project-root (expand-file-name (simp-project-get :root 'halt))))
+  (let ((project-root (expand-file-name (simp-project-root))))
     (mapconcat
      'identity
      `("find -L"
