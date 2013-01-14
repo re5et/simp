@@ -36,6 +36,7 @@
 
 (require 'simp-project-files)
 (require 'simp-project-rgrep)
+(require 'simp-project-dired)
 (require 'simp-project-with-bookmarks)
 
 (provide 'simp)
