@@ -35,3 +35,5 @@
   "Start dired at the current buffers associated simp project root"
   (interactive)
   (dired (simp-project-root)))
+
+(provide 'simp-project-root-dired)

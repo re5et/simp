@@ -36,7 +36,7 @@
 
 (require 'simp-project-files)
 (require 'simp-project-rgrep)
-(require 'simp-project-dired)
+(require 'simp-project-root-dired)
 ;; this should be required last, it generates
 ;; helpers for other simp-project features
 (require 'simp-project-with-bookmarks)
