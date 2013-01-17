@@ -5,7 +5,7 @@
 ;; Author: atom smith
 ;; URL: https://github.com/re5et/simp
 ;; Created: 01 Jan 2013
-;; Version: 0.3.0
+;; Version: 0.4.0
 ;; Keywords: project dired
 
 ;; This file is NOT part of GNU Emacs.
