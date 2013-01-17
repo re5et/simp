@@ -152,6 +152,25 @@ rgrep or simp-project-rgrep.
 - I might actually use this one even more than simp-project-rgrep, this is how I bind it:
 
   : (global-set-key (kbd "C-c S") 'simp-project-rgrep-dwim)
+** Ibuffer
+*** simp-project-ibuffer
+
+Use Ibuffer to show buffers associated with the current simp project
+
+*** simp-project-ibuffer-files-only
+
+Use Ibuffer to show buffers associated with the current simp project,
+but only show files
+
+*** ibuffer-filter-by-simp-project-buffers
+
+Filter an existing Ibuffer buffer by buffers associated with the current simp project
+
+*** ibuffer-filter-by-simp-project-file-buffers
+
+Filter an existing Ibuffer buffer by buffers associated with the
+current simp project, but only show files
+
 ** with bookmarks
 
 You can use with bookmark simp commands to take a project action like
@@ -173,6 +192,10 @@ simp-project-find-file scoped to bookmark selected
 *** simp-project-with-bookmark-rgrep
 
 simp-project-rgrep scoped to bookmark selected
+
+*** simp-project-with-bookmark-ibuffer
+
+simp-project-ibuffer scoped to bookmark selected
 
 * Have any good ideas?
 Feel free to fork it and send pull requests.  Also, if you have a good
