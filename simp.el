@@ -37,6 +37,8 @@
 (require 'simp-project-files)
 (require 'simp-project-rgrep)
 (require 'simp-project-root-dired)
+(require 'simp-project-ibuffer)
+
 ;; this should be required last, it generates
 ;; helpers for other simp-project features
 (require 'simp-project-with-bookmarks)
