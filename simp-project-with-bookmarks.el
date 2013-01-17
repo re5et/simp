@@ -51,19 +51,22 @@ bookmark system to set the project context to use"
            (default-directory (bookmark-location (car bookmark))))
        ,body)))
 
-(if (fboundp 'simp-project-find-file)
-    (defun simp-project-with-bookmark-find-file ()
-      "Simp project find file using simp project with bookmark"
-      (interactive)
-      (simp-project-with-bookmark
-       (simp-project-find-file))))
+(defmacro simp-project-feature-with-bookmark (feature)
+  (let ((with-bookmark-function-name (intern (format "simp-project-with-bookmark-%s" feature)))
+        (function-name (intern (format "simp-project-%s" feature))))
+    (if (fboundp function-name)
+        `(defun ,with-bookmark-function-name ()
+           ,(format "%s using simp project with bookmark" function-name)
+           (interactive)
+           (simp-project-with-bookmark
+            (,function-name))))))
 
-(if (fboundp 'simp-project-rgrep)
-    (defun simp-project-with-bookmark-rgrep ()
-      "Simp project rgrep using simp project with bookmark"
-      (interactive)
-      (simp-project-with-bookmark
-       (simp-project-rgrep))))
+;; Make simp-project-with-bookmark convenience methods
+;; for included simp project features
+
+(simp-project-feature-with-bookmark rgrep)
+(simp-project-feature-with-bookmark find-file)
+(simp-project-feature-with-bookmark ibuffer)
 
 (provide 'simp-project-with-bookmarks)
 
