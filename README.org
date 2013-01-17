@@ -90,6 +90,22 @@ following:
 If the project has both a `whatever.gemspec` file and a `.git` directory, the
 `ruby-gem` entry will match first.
 
+* Bindings
+
+  #+NAME: tl;dr
+  #+BEGIN_SRC emacs-lisp
+;; I bind the handy stuff like so:
+(global-set-key (kbd "C-c f") 'simp-project-find-file)
+(global-set-key (kbd "C-c d") 'simp-project-root-dired)
+(global-set-key (kbd "C-c s") 'simp-project-rgrep)
+(global-set-key (kbd "C-c S") 'simp-project-rgrep-dwim)
+(global-set-key (kbd "C-c b") 'simp-project-ibuffer-files-only)
+(global-set-key (kbd "C-c B") 'simp-project-ibuffer)
+(global-set-key (kbd "C-c C-f") 'simp-project-with-bookmark-find-file)
+(global-set-key (kbd "C-c C-s") 'simp-project-with-bookmark-rgrep)
+(global-set-key (kbd "C-c C-b") 'simp-project-with-bookmark-ibuffer)
+  #+END_SRC
+
 * Features
 ** Finding Files
 *** simp-project-find-file
@@ -160,7 +176,8 @@ Use Ibuffer to show buffers associated with the current simp project
 *** simp-project-ibuffer-files-only
 
 Use Ibuffer to show buffers associated with the current simp project,
-but only show files
+but only show files. This makes it easy to save all modified project
+files, etc.
 
 *** ibuffer-filter-by-simp-project-buffers
 
