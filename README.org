@@ -26,7 +26,7 @@ files.
 : (require 'simp)
 
 * Defining A Project
-A very simple generic project defenition to work with git projects:
+A very simple generic project definition to work with git projects:
 
 : (simp-project-define
 :  '(:has (.git)
