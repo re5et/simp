@@ -1,4 +1,4 @@
-;;; simp.el --- Simple project defenition, chiefly for file finding, and grepping
+;;; simp.el --- Simple project definition, chiefly for file finding, and grepping
 
 ;; Copyright (C) 2011-2013 @re5et
 
