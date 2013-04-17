@@ -38,6 +38,7 @@
 ;; navigating projects with rgrep.
 
 (require 'simp-project)
+(require 'grep)
 
 (defun simp-project-buffer-rgrep (fn)
   "add project's ignored paths to the rgrep's ignored"
