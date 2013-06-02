@@ -73,7 +73,7 @@
 ;;    :has (init.el)))
 
 ;; Needed for 'return' used in simp-project-for-current-buffer
-(require 'cl)
+(eval-when-compile (require 'cl))
 
 (defgroup simp nil
   "Simp project helper."
