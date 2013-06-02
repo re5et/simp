@@ -1,4 +1,4 @@
-;;; simp-project-with-bookmark.el --- Utilize Emacs bookmarks with simp
+;;; simp-project-with-bookmarks.el --- Utilize Emacs bookmarks with simp
 
 ;; Copyright (C) 2011-2013 @re5et
 
@@ -70,4 +70,4 @@ bookmark system to set the project context to use"
 
 (provide 'simp-project-with-bookmarks)
 
-;;; simp-project-with-bookmark.el ends here
+;;; simp-project-with-bookmarks.el ends here
