@@ -68,12 +68,16 @@ current region, or the (symbol) thing at point"
   (interactive)
   (simp-project-buffer-rgrep
    (lambda ()
-     (let ((search-for (if (region-active-p)
-                           (buffer-substring (region-beginning) (region-end))
-                         (thing-at-point 'symbol))))
+     (let ((search-for (simp-project-rgrep-dwim-thing)))
        (if search-for
            (rgrep search-for "*" (simp-project-root))
          (message "Failed to rgrep. No active region, and point not near a symbol"))))))
+
+(defun simp-project-rgrep-dwim-thing ()
+  "Get the thing from dwim"
+  (if (region-active-p)
+      (buffer-substring (region-beginning) (region-end))
+    (thing-at-point 'symbol)))
 
 (defalias 'simp-project-rgrep-thing-at-point 'simp-project-rgrep-dwim)
 
