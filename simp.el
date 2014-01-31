@@ -38,6 +38,7 @@
 (require 'simp-project-rgrep)
 (require 'simp-project-root-dired)
 (require 'simp-project-ibuffer)
+(require 'simp-project-git)
 
 ;; this should be required last, it generates
 ;; helpers for other simp-project features
