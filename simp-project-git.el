@@ -53,7 +53,7 @@
 
 (defun simp-project-git-grep-compilation (regexp)
   (compilation-start
-   (concat "git --no-pager grep -InH --untracked -e " regexp)
+   (concat "git --no-pager grep -iInH --untracked -e " regexp)
    'grep-mode))
 
 (defadvice simp-project-find-files-generate-find-command (around simp-project-git-files activate)
