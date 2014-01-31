@@ -1,6 +1,6 @@
 ;;; simp-project-root-dired.el --- Quickly jump to project root, dired
 
-;; Copyright (C) 2011-2013 @re5et
+;; Copyright (C) 2011-2014 @re5et
 
 ;; Author: atom smith
 ;; URL: https://github.com/re5et/simp
