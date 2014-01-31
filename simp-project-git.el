@@ -52,9 +52,13 @@
     (simp-project-git-grep-compilation regexp)))
 
 (defun simp-project-git-grep-compilation (regexp)
-  (compilation-start
-   (concat "git --no-pager grep -iInH --untracked -e " regexp)
-   'grep-mode))
+  (let ((flags "-InH --untracked")
+        (case-fold-search nil))
+    (unless (posix-string-match "[A-Z]" regexp)
+      (set 'flags (concat flags " -i")))
+    (compilation-start
+     (concat "git --no-pager grep " flags " -e " regexp)
+     'grep-mode)))
 
 (defadvice simp-project-find-files-generate-find-command (around simp-project-git-files activate)
   "Make simp-project-files to use git to find files for git projects."
