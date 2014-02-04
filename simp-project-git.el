@@ -47,8 +47,9 @@
   "Use git-grep and grep mode to find matches"
   (let* ((regexp (grep-read-regexp))
          (files (grep-read-files regexp))
-         (dir (read-directory-name "Base directory: "
-                                   nil default-directory t)))
+         (default-directory (or dir (read-directory-name
+                                     "Base directory: "
+                                     nil default-directory t))))
     (simp-project-git-grep-compilation regexp)))
 
 (defun simp-project-git-grep-compilation (regexp)
