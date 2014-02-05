@@ -58,7 +58,7 @@
     (unless (posix-string-match "[A-Z]" regexp)
       (set 'flags (concat flags " -i")))
     (compilation-start
-     (concat "git --no-pager grep " flags " -e " "'" regexp "'")
+     (concat "git --no-pager grep " flags " -e " (shell-quote-argument regexp))
      'grep-mode)))
 
 (defadvice simp-project-find-files-generate-find-command (around simp-project-git-files activate)
