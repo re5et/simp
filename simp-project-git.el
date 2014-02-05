@@ -37,7 +37,7 @@
 
 (defun simp-project-find-files-generate-git-files-command ()
   "Git command to generate file list"
-  "git ls-files --full-name")
+  (concat "git ls-files --full-name " (simp-project-root)))
 
 (defun simp-project-git-grep-dwim ()
   "Use git-grep and grep mode to find matches"
