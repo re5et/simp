@@ -41,7 +41,8 @@
 
 (defun simp-project-git-grep-dwim ()
   "Use git-grep and grep mode to find matches"
-  (simp-project-git-grep-compilation (simp-project-rgrep-dwim-thing)))
+  (let ((default-directory (concat (simp-project-root) "/")))
+    (simp-project-git-grep-compilation (simp-project-rgrep-dwim-thing))))
 
 (defun simp-project-git-grep (&optional regexp files dir)
   "Use git-grep and grep mode to find matches"
