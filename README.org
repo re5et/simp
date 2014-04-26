@@ -17,7 +17,7 @@ working with, it is easy to scope actions to the project directory and
 files.
 
 * Installing It
-** First, install from [Marmalade](http://marmalade-repo.org/)
+** First, make sure you have [melpa in your package archives list](http://melpa.milkbox.net/#/getting-started)
 
 : M-x package-install simp
 
