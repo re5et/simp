@@ -100,6 +100,14 @@ COLLECTION is the list of possible completions."
 is associated with.  If the buffer local variable
 is set, simply return it, otherwise determine the
 correct project and set it"
+  (when simp-buffer-project
+    ;; there is a bug I have not been able to identify where a buffer
+    ;; gets a simp-buffer-project that does not match its
+    ;; default-directory.  This forces it to reset the
+    ;; simp-buffer-project if it doesn't make any sense.
+    (unless
+        (string-match-p (plist-get simp-buffer-project :root) default-directory)
+      (setq simp-buffer-project nil)))
   (or simp-buffer-project
       (dolist (project simp-projects)
         (let* ((paths (plist-get project :has))
