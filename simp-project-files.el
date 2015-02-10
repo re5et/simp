@@ -67,9 +67,10 @@ Set simp-project-find-file-sort-command to the command you want to sort with"
   "Returns a list of files in a project, excluding project's
 ignored paths, using the unix find command for speedy results."
   (let ((find-command (simp-project-find-files-generate-find-command)))
-    (split-string
-     (shell-command-to-string find-command)
-     "\n" t)))
+    (delete-dups
+     (split-string
+      (shell-command-to-string find-command)
+      "\n" t))))
 
 (defun simp-project-find-files-generate-find-command ()
   (let ((project-root (expand-file-name (simp-project-root))))
