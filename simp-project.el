@@ -1,6 +1,6 @@
 ;;; simp-project.el --- Simple project definition, chiefly for file finding, and grepping
 
-;; Copyright (C) 2011-2014 @re5et
+;; Copyright (C) 2011-2015 @re5et
 
 ;; Author: atom smith
 ;; URL: https://github.com/re5et/simp

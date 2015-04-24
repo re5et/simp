@@ -1,6 +1,6 @@
 ;;; simp-project-with-bookmarks.el --- Utilize Emacs bookmarks with simp
 
-;; Copyright (C) 2011-2014 @re5et
+;; Copyright (C) 2011-2015 @re5et
 
 ;; Author: atom smith
 ;; URL: https://github.com/re5et/simp
