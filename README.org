@@ -104,6 +104,7 @@ If the project has both a `whatever.gemspec` file and a `.git` directory, the
 (global-set-key (kbd "C-c C-f") 'simp-project-with-bookmark-find-file)
 (global-set-key (kbd "C-c C-s") 'simp-project-with-bookmark-rgrep)
 (global-set-key (kbd "C-c C-b") 'simp-project-with-bookmark-ibuffer)
+(global-set-key (kbd "C-c C-d") 'simp-project-with-bookmark-root-dired)
   #+END_SRC
 
 * Features
@@ -213,6 +214,11 @@ simp-project-rgrep scoped to bookmark selected
 *** simp-project-with-bookmark-ibuffer
 
 simp-project-ibuffer scoped to bookmark selected
+
+*** simp-project-with-bookmark-root-dired
+
+simp-project-root-dired scoped to bookmark selected
+
 
 * Have any good ideas?
 Feel free to fork it and send pull requests.  Also, if you have a good
