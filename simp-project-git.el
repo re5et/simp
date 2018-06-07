@@ -33,7 +33,7 @@
 
 (defun simp-project-is-git ()
   "Return non-nil if the current project is git revision controled"
-  (simp-project-has-paths '(.git)))
+  (file-exists-p (expand-file-name ".git" (simp-project-root))))
 
 (defun simp-project-find-files-generate-git-files-command ()
   "Git command to generate file list"
